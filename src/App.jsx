@@ -1,35 +1,78 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import styled, { css } from "styled-components";
+import Contact from "./components/Contact";
+import Feature from "./components/Feature";
+import Footer from "./components/Footer";
+import Intro from "./components/Intro";
+import Navbar from "./components/Navbar";
+import Price from "./components/Price";
+import Service from "./components/Service";
 
-function App() {
-  const [count, setCount] = useState(0)
+const Container = styled.div`
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+`;
 
+const Shape = css`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+`;
+
+const IntoShape = styled.div`
+  ${Shape}
+  clip-path: polygon(67% 0, 100% 0%, 100% 100%, 55% 100%);
+  background-color: crimson;
+`;
+
+const FeatureShape = styled.div`
+  ${Shape}
+  clip-path: polygon(0 0, 55% 0%, 33% 100%, 0 100%);
+  background-color: pink;
+`;
+
+const ServiceShape = styled.div`
+  ${Shape}
+  clip-path: polygon(0 0, 33% 0%, 33% 100%, 0 100%);
+  background-color: #f88497;
+`;
+
+const PriceShape = styled.div`
+  ${Shape}
+  clip-path: polygon(33% 0, 100% 0%, 100% 100%, 67% 100%);
+  background-color: crimson;
+`;
+
+const App = () => {
+  const smallScreen = window.screen.width <= 480 ? true : false;
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Container>
+        <Navbar />
+        <Intro />
+        <IntoShape />
+      </Container>
+      <Container>
+        <Feature />
+        <FeatureShape />
+      </Container>
+      <Container>
+        <Service />
+        {!smallScreen && <ServiceShape />}
+      </Container>
+      <Container>
+        <Price />
+        <PriceShape />
+      </Container>
+      <Container>
+        <Contact />
+        <Footer />
+      </Container>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
