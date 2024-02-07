@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-// import How from "../assets/img/how.png";
+import How from "../assets/img/how.jpeg";
 import MiniCard from "./MiniCard";
 import Play from "../assets/img/play.png";
 
@@ -13,8 +13,10 @@ const Container = styled.div`
 `;
 
 const Left = styled.div`
-  width: 50%;
   position: relative;
+  width: 60%;
+  // border-right: 1px solid blue;
+  // overflow: hidden;
   @media only screen and (max-width: 480px) {
     display: none;
   }
@@ -22,20 +24,27 @@ const Left = styled.div`
 
 const Image = styled.img`
   display: ${(props) => props.open && "none"};
-  height: 100%;
-  margin-left: 100px;
+  height: 50%;
+  width: 60%;
+  border-radius: 50%;
 `;
 
 const Video = styled.video`
   display: ${(props) => !props.open && "none"};
   height: 300px;
+
   position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  margin: auto;
+  top: 10%;
+  bottom: 10%;
+  right: 20%;
+  left: 20%;
+
   @media only screen and (max-width: 480px) {
-    width: 100%;
+    width: 80%;
+    left: 0;
+    // right: 0;
+    top: 0;
+    margin: auto;
   }
 `;
 
@@ -77,7 +86,7 @@ const Button = styled.button`
   color: white;
   font-size: 20px;
   padding: 15px;
-  margin-top: 50px;
+  margin-top: 20px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -103,7 +112,7 @@ const CloseButton = styled.button`
   padding: 5px;
   border: none;
   border-radius: 5px;
-  right: 5px;
+  right: 20px;
   top: 30%;
 `;
 
@@ -113,7 +122,7 @@ const Service = () => {
   return (
     <Container>
       <Left>
-        {/* <Image open={open} src={How} /> */}
+        <Image open={open} src={How} />
         <Video
           open={open}
           autoPlay

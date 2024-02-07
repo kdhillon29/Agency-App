@@ -8,11 +8,12 @@ const Container = styled.div`
   padding: 20px;
   @media only screen and (max-width: 480px) {
     flex-direction: column;
+    padding: 1px;
   }
 `;
 
 const Left = styled.div`
-  width: 60%;
+  width: 65%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,6 +21,8 @@ const Left = styled.div`
   @media only screen and (max-width: 480px) {
     width: 100%;
     height: 100%;
+    justify-content: start;
+    // padding: 10px;
   }
 `;
 
@@ -35,15 +38,20 @@ const Title = styled.h1`
 const Desc = styled.p`
   width: 60%;
   font-size: 20px;
-  margin-top: 20px;
   @media only screen and (max-width: 480px) {
-    width: 100%;
+    width: 90%;
+    margin-top: 0px;
+    padding-right: 10px;
+    font-weight: 600;
+    font-size: 24px;
+    color: gray;
+    text-align: justify;
   }
 `;
 
 const Info = styled.div`
-  width: 60%;
-  margin-top: 50px;
+  width: 80%;
+  margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -83,10 +91,8 @@ const ContactText = styled.span`
 `;
 
 const Right = styled.div`
-  width: 30%;
-  margin-top: 50px;
-  border: 1px solid green;
-  border-bottom: none;
+  width: 35%;
+
   border-radius: 40px;
   margin-left: 80px;
   @media only screen and (max-width: 480px) {
@@ -96,6 +102,8 @@ const Right = styled.div`
 
 const Image = styled.img`
   width: 100%;
+  height: 80%;
+  border-radius: 50%;
 `;
 
 const Intro = () => {
